@@ -1,13 +1,20 @@
+import { useState } from "react";
 import "./App.css";
+import CounterButton from "./CounterButton";
 import SportsList from "./SportsList";
 
 function App() {
-  // coming from back-end
-  let sports = ["Cricket", "Football", "Hockey", "Boxing", "Kabaddi"];
-
+  const [bgColor, setBgColor] = useState("black");
+  const colorArray = ["yellow", "blue", "green"];
   return (
-    <div>
-      <SportsList sports={sports} />
+    <div style={{ backgroundColor: bgColor }}>
+      <button
+        onClick={() => setBgColor(colorArray[Math.floor(Math.random() * 3)])}
+      >
+        Change bg
+      </button>
+      <CounterButton />
+      <CounterButton />
     </div>
   );
 }
